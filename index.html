@@ -13,12 +13,16 @@
         font-family: 'inter';
       }
       #main-container {
-        background-color: rgb(224, 224, 224);
+        background-color: hwb(210 31% 4%);
+        color: rgb(255, 255, 255);
         width: 350px;
-        height: 300px;
-        margin: 100px auto;
+        height: 330px;
+        margin: 30px auto;
         padding: 20px 20px 20px 20px; 
+        font-weight: bold;
+        font-size: large;
         border-radius: 2%;
+        border: 2px hwb(210 31% 4%) solid;
       }
 
       #main-container div {
@@ -31,16 +35,32 @@
         width: 160px;
         height: 40px;
         font-family: 'inter';
+        font-weight: bold;
         padding: 5px;
         border-radius: 2%;
+        background-color: rgb(255, 255, 255);
+        border: black 0.5px solid;
+      }
+      .button:hover{
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        border: rgb(255, 255, 255) 0px solid;
       }
 
       #qrValue{
         width: 315px;
+        height: 30px;
         padding: 4px;
         border-radius: 2%;
+        border: black 0.5px solid;
+      }
+       
+      #qrValue:hover{
+        border: rgb(255, 255, 255) 2px solid;
+        font-size: larger;
       }
 
+      
       #qrResult{
         padding: 10px;
         align-content: center;
