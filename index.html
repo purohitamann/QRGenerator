@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Generator</title>
+
+    <style>
+
+      body {
+        background-color: rgb(26, 26, 26);
+        font-family: 'inter';
+      }
+      #main-container {
+        background-color: rgb(224, 224, 224);
+        width: 350px;
+        height: 300px;
+        margin: 100px auto;
+        padding: 20px 20px 20px 20px; 
+        border-radius: 2%;
+      }
+
+      #main-container div {
+        margin: 2%;
+        padding: 0px;
+       
+      }
+
+      .button{
+        width: 160px;
+        height: 40px;
+        font-family: 'inter';
+        padding: 5px;
+        border-radius: 2%;
+      }
+
+      #qrValue{
+        width: 315px;
+        padding: 4px;
+        border-radius: 2%;
+      }
+
+      #qrResult{
+        padding: 10px;
+        align-content: center;
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <div id="main-container">
+      <div>
+        <p>
+          Hello, <br />I will Generate QR code for the given <br />value below!
+        </p>
+      </div>
+      <div>
+        <input type="text" id="qrValue"  />
+        <br />
+        <hr />
+        <button type="submit" id="submit" class="button">
+          Generate QR Code
+        </button>
+
+        <button type="reset" id="reset" class="button">Clear</button>
+      </div>
+
+      <div>
+        <canvas id="qrResult"> </canvas>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script>
+    var results = document.getElementById("qrResult");
+    var value = document.getElementById("qrValue");
+    var submit = document.getElementById("submit");
+    var clear = document.getElementById("reset");
+
+    submit.addEventListener("click", function () {
+      if (value.value === ""){
+        alert("enter something!");
+      }
+      else{
+
+        
+        var qr = new QRious({
+        element: results,
+        value: value.value,
+        size: 100,
+      });
+    }
+      
+    });
+
+    clear.addEventListener("click", function () {
+      value.value = "";
+      var canvas = document.getElementById("qrResult");
+      var context = canvas.getContext("2d");
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    var content = document.getElementById('main-container');
+    
+  </script>
+</html>
