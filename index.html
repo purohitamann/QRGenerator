@@ -1,3 +1,7 @@
+<!--
+Name: Aman Hiran Purohit
+Date: 06/12/2023 
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,69 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QR Generator</title>
-
-    <style>
-
-      body {
-        background-color: rgb(26, 26, 26);
-        font-family: 'inter';
-      }
-      #main-container {
-        background-color: hwb(210 31% 4%);
-        color: rgb(255, 255, 255);
-        width: 350px;
-        height: 350px;
-        margin: 30px auto;
-        padding: 20px 20px 20px 20px; 
-        font-weight: bold;
-        font-size: large;
-        border-radius: 2%;
-        border: 2px hwb(210 31% 4%) solid;
-      }
-
-      #main-container div {
-        margin: 2%;
-        padding: 0px;
-       
-      }
-
-      .button{
-        width: 160px;
-        height: 40px;
-        font-family: 'inter';
-        font-weight: bold;
-        padding: 5px;
-        border-radius: 2%;
-        background-color: rgb(255, 255, 255);
-        border: black 0.5px solid;
-      }
-      .button:hover{
-        background-color: rgb(0, 0, 0);
-        color: rgb(255, 255, 255);
-        border: rgb(255, 255, 255) 0px solid;
-      }
-
-      #qrValue{
-        width: 315px;
-        height: 30px;
-        padding: 4px;
-        border-radius: 2%;
-        border: black 0.5px solid;
-      }
-       
-      #qrValue:hover{
-        border: rgb(255, 255, 255) 2px solid;
-        font-size: larger;
-      }
-
-      
-      #qrResult{
-        padding: 10px;
-        align-content: center;
-      }
-
-    </style>
-
+    <link rel="stylesheet" href="./qrStyle.css" />
   </head>
   <body>
     <div id="main-container">
@@ -77,7 +19,7 @@
         </p>
       </div>
       <div id="result">
-        <input type="text" id="qrValue"  />
+        <input type="text" id="qrValue" />
         <br />
         <hr />
         <button type="submit" id="submit" class="button">
@@ -87,63 +29,12 @@
         <button type="reset" id="reset" class="button">Clear</button>
       </div>
 
-      <div >
+      <div>
         <canvas id="qrResult"> </canvas>
       </div>
     </div>
   </body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
-  <script>
-    var results = document.getElementById("qrResult");
-    var value = document.getElementById("qrValue");
-    var submit = document.getElementById("submit");
-    var clear = document.getElementById("reset");
-
-    submit.addEventListener("click", function () {
-      if (value.value === ""){
-        alert("enter something!");
-      }
-      else{
-       var savetext =  document.createElement("div");
-       savetext.setAttribute('id','Text');
-       savetext.appendChild(document.createTextNode("Tap on QR Code to Download"));
-       document.getElementById("result").appendChild(savetext);
-    
-        var qr = new QRious({
-        element: results,
-        value: value.value,
-        size: 100,
-      });
-
-     
-      
-    }
-      
-    });
-
-    clear.addEventListener("click", function () {
-      value.value = "";
-      var canvas = document.getElementById("qrResult");
-      var context = canvas.getContext("2d");
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      
-
-      var existingText = document.getElementById("Text");
-        if (existingText) {
-          existingText.parentNode.removeChild(existingText);
-        }
-    });
-
-   results.addEventListener("click", function (){
-     var content = document.createElement('a');
-    content.href = results.toDataURL();
-    content.download = value.value+'png';
-    content.click();
-   
-   });
-     
-    
-    
-  </script>
+  <script src="./qrScript.js"></script>
 </html>
