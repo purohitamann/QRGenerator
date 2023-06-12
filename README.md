@@ -5,6 +5,7 @@
 - 🔭 I’m currently working on **QR Code Generator**
 
 <h3 align="left">Connect with me:</h3>
+<h4> @purohitamann </h4>
 <p align="left">
 </p>
 
